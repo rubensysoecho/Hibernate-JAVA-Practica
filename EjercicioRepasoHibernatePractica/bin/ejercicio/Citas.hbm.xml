@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 19 oct. 2022 14:24:10 by Hibernate Tools 6.0.2.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class catalog="centromedico" name="ejercicio.Citas" optimistic-lock="none" table="citas">
+        <id name="codigo" type="java.lang.Integer">
+            <column name="codigo"/>
+            <generator class="identity"/>
+        </id>
+        <many-to-one class="ejercicio.Pacientes" fetch="select" name="pacientes">
+            <column name="pacienteID" not-null="true"/>
+        </many-to-one>
+        <many-to-one class="ejercicio.Medicos" fetch="select" name="medicos">
+            <column name="medicoID" not-null="true"/>
+        </many-to-one>
+        <property name="fecha" type="date">
+            <column length="10" name="fecha" not-null="true"/>
+        </property>
+    </class>
+</hibernate-mapping>
